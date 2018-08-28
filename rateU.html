@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RateU</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" href="rateu.css">
+	<script type="text/javascript">
+		var input[]=document.getElementByClass("TextBox");
+		input.addEventListener("keyup",function(event)){
+			event.preventDefault();
+			if(event.keyCode === 13){
+				document.getElementById("Submit").click(); 
+			}
+		}
+	</script>
+	
+	</style>
+</head>
+<body>
+
+<form action="\action_page.php" target="_blank">
+<div class="Input"><input type="text" name="Name_Professor" class="TextBox" patttern="[A-Za-z\s]+" placeholder="Professor Name" required></div>
+<br>
+<input type="text" name="Name_University" class="TextBox" pattern="[A-Za-z\s]+" placeholder="Unviersity Name"  required>
+<br><br>
+<button value="Submit" id="Submit">Submit</button>
+</form>
+</body>
+</html>
