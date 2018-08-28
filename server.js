@@ -3,7 +3,7 @@ var google = require('google')
 google.resultsPerPage = 25
 var nextCounter = 0
 
-google('Mia Khalifa university of texas at dallas rate my professor', function (err, res){
+google('Gordon Arnold university of texas at dallas rate my professor', function (err, res){
   if (err) console.error(err)
 
 
