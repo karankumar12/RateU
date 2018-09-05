@@ -2,7 +2,8 @@ var google = require('google')
 
 google.resultsPerPage = 25
 var nextCounter = 0
-
+var professorName = 'Gordon Arnold'
+var schoolName = 'University of Texas at Dallas'
 google('Gordon Arnold university of texas at dallas rate my professor', function (err, res){
   if (err) console.error(err)
 
