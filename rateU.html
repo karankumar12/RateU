@@ -3,16 +3,27 @@
 <head>
 	<title>RateU</title>
 
-	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,800" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="rateu.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
 	<script type="text/javascript">
-		var input[]=document.getElementByClass("TextBox");
-		input.addEventListener("keyup",function(event)){
-			event.preventDefault();
-			if(event.keyCode === 13){
-				document.getElementById("Submit").click(); 
-			}
+		function callBackend(){
+
+			var prof = document.getElementById("prof_name");
+			var univ = document.getElementById("univ_name");
+			var result = document.getElementById("result");
+
+			console.log("BUtton clicked javascript");
+			$.get( "http://localhost:3000/getData?prof=Gordon%20Arnold&univ%20=%20utd", function(data) {
+			  console.log("backend called")
+			  $( ".result" ).html( data );
+			  //alert( "Request Completed"+data );
+			  result.innerHTML = data;
+			}).error(function(err){
+				console.log("Error in call");
+			});
 		}
 	</script>
 	
@@ -20,12 +31,14 @@
 </head>
 <body>
 
-<form action="\action_page.php" target="_blank">
-	<div class="Input"><input type="text" name="Name_Professor" class="TextBox" patttern="[A-Za-z\s]+" placeholder="Professor Name" required></div>
+
+	<div class="Input"><input type="text" name="Name_Professor" id = "prof_name" class="TextBox" patttern="[A-Za-z\s]+" placeholder="Professor Name" required></div>
 	<br>
-	<input type="text" name="Name_University" class="TextBox" pattern="[A-Za-z\s]+" placeholder="University Name"  required>
+	<input type="text" name="Name_University" id = "univ_name" class="TextBox" pattern="[A-Za-z\s]+" placeholder="University Name"  required>
 	<br><br>
-	<input id="Submit" type="submit" value="Submit">
-</form>
+	<button onclick="callBackend()">Submit</button>
+
+	<p id = "result"></p>
+
 </body>
 </html>
